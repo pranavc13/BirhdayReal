@@ -62,22 +62,22 @@ export const memoryLanes: MemoryLanesType = {
     },
         {
       image: "/images/Vipanchi/Vipanchi1.jpg",
-      caption: "Our college days were the best!",
+      caption: "Two halves of one jhumka🦢🪞💌",
       layout: "landscape",
     },
     {
       image: "/images/Vipanchi/Vipanchi2.jpg",
-      caption: "Remember that road trip we took?",
+      caption: "Bond stronger than your wifi 😏😚",
       layout: "portrait",
     },
     {
       image: "/images/Vipanchi/Vipanchi6.jpg",
-      caption: "Remember that road trip we took?",
+      caption: "From silly selfies to deep talk- u r mu fave annoying person💋",
       layout: "portrait",
     },
     {
       image: "/images/Vipanchi/Vipanchi7.jpg",
-      caption: "Remember that road trip we took?",
+      caption: "Def the Prettiest duo - spotify should pay us for the vibe we bring 💃✨",
       layout: "landscape",
     },
 
