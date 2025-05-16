@@ -2,6 +2,7 @@ interface MemoryItem {
   image: string;
   caption: string;
   layout?: "portrait" | "landscape";
+  type?: "image" | "video"; // ✅ Added support for videos
 }
 
 type MemoryLanesType = Record<string, MemoryItem[]>;
@@ -50,7 +51,7 @@ export const memoryLanes: MemoryLanesType = {
       caption: "Riya ANWESH ne dekh liya toh?? Door hato merese!🙈😳👉👈",
       layout: "portrait",
     },
-  {
+    {
       image: "/images/Vipanchi/Vipanchi3jpg.jpg",
       caption: "MY GF!🧸ྀི❤️",
       layout: "portrait",
@@ -60,7 +61,7 @@ export const memoryLanes: MemoryLanesType = {
       caption: "Pallu Latkeeee!!💛💛💛💛💛💛",
       layout: "portrait",
     },
-        {
+    {
       image: "/images/Vipanchi/Vipanchi1.jpg",
       caption: "Two halves of one jhumka🦢🪞💌",
       layout: "landscape",
@@ -80,8 +81,6 @@ export const memoryLanes: MemoryLanesType = {
       caption: "Def the Prettiest duo - spotify should pay us for the vibe we bring 💃✨",
       layout: "landscape",
     },
-
-
   ],
   Tanishi: [
     {
@@ -89,7 +88,6 @@ export const memoryLanes: MemoryLanesType = {
       caption: "Sweety 💗ྀི",
       layout: "landscape",
     },
-
   ],
   Vaibhavi: [
     {
@@ -122,13 +120,11 @@ export const memoryLanes: MemoryLanesType = {
       caption: "We have endured it all and we’re now a family❤🫂🧿I LOVE YOU SO MUCH RIYA❤",
       layout: "portrait",
     },
-
   ],
   Dikshika: [
     {
       image: "/images/Dikshika/Dikshika1.jpg",
       caption: "Sweetest Person Alive 🫶🏻🥹❤️‍🩹",
-
     },
     {
       image: "/images/Dikshika/Dikshika2.jpg",
@@ -138,61 +134,70 @@ export const memoryLanes: MemoryLanesType = {
       image: "/images/Dikshika/Dikshika3.jpg",
       caption: "Thank you for being you! 🫶🏻This world needs more kind people like you˚.🎀༘⋆",
       layout: "portrait",
-    }
+    },
   ],
   Aarushi: [
     {
       image: "/images/Aarushi/Aarushi1.jpg",
       caption: "Alexa play, desi girlll 💃",
-
     },
     {
       image: "/images/Aarushi/Aarushi2.jpg",
       caption: "Aree koi pose bataoo, woohhoo aa gyi acchi😍",
-
     },
     {
       image: "/images/Aarushi/Aarushi3.jpg",
       caption: "Ek candid lete h haste huye ek dusare ko, hasso hasso photo acchi aayegi 🥰",
       layout: "portrait",
-
     },
     {
       image: "/images/Aarushi/Aarushi4.jpg",
       caption: "Ek neeche baith k bhi lete h floor saaf ho jaayegi 🤭",
       layout: "portrait",
-
     },
     {
       image: "/images/Aarushi/Aarushi5.jpg",
       caption: "My pyaariii padosaan ♾️🫶🏻",
       layout: "landscape",
-
     },
-
   ],
   Ayushi: [
     {
       image: "/images/Ayushi/Ayushi1.jpg",
       caption: "desi coded girls🫶🏻",
-  },
+    },
     {
       image: "/images/Ayushi/Ayushi2.jpg",
       caption: "desi coded girls🫶🏻",
       layout: "landscape",
-  },
-
+    },
   ],
   Priya: [
     {
-      image: "/images/Ayushi/Ayushi1.jpg",
+      image: "/images/Priya/Priya1.jpg",
       caption: "desi coded girls🫶🏻",
-  },
+      layout: "portrait",
+    },
     {
-      image: "/images/Ayushi/Ayushi2.jpg",
+      image: "/images/Priya/Priya2.jpg",
       caption: "desi coded girls🫶🏻",
+      layout: "portrait",
+    },
+    {
+      image: "/images/Priya/Priya3.jpg",
+      caption: "desi coded girls🫶🏻",
+      layout: "portrait",
+    },
+    {
+      image: "/images/Priya/Priya4.jpg",
+      caption: "desi coded girls🫶🏻",
+      layout: "portrait",
+    },
+    {
+      image: "/images/Priya/Video1.mp4", 
+      caption: "Video moments > everything! 🎥💕",
       layout: "landscape",
-  },
-
-  ]
+      type: "video",
+    },
+  ],
 };

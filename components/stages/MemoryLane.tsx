@@ -8,7 +8,8 @@ type Memory = {
   id?: number | string;
   image: string;
   caption: string;
-  layout?: "portrait" | "landscape"; // 🔄 Added
+  layout?: "portrait" | "landscape";
+  type?: "image" | "video"; // ✅ Added support for video
 };
 
 type MemoryLaneProps = {
@@ -22,7 +23,7 @@ const MemoryLane = ({ handleBackToCategories, memoryLanes, title }: MemoryLanePr
   const [direction, setDirection] = useState(0);
 
   const currentMemory = memoryLanes[currentIndex];
-  const isPortrait = currentMemory.layout === "portrait"; // 🔄 NEW
+  const isPortrait = currentMemory.layout === "portrait";
 
   const handleNext = () => {
     setDirection(1);
@@ -49,25 +50,23 @@ const MemoryLane = ({ handleBackToCategories, memoryLanes, title }: MemoryLanePr
     }),
   };
 
-  const renderPaginationDots = () => {
-    return (
-      <div className="flex justify-center space-x-2 mt-4">
-        {memoryLanes.map((_, index) => (
-          <motion.button
-            key={index}
-            className={`w-3 h-3 rounded-full ${index === currentIndex ? "bg-pink-500" : "bg-gray-300"}`}
-            onClick={() => {
-              setDirection(index > currentIndex ? 1 : -1);
-              setCurrentIndex(index);
-            }}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ duration: 0.2 }}
-          />
-        ))}
-      </div>
-    );
-  };
+  const renderPaginationDots = () => (
+    <div className="flex justify-center space-x-2 mt-4">
+      {memoryLanes.map((_, index) => (
+        <motion.button
+          key={index}
+          className={`w-3 h-3 rounded-full ${index === currentIndex ? "bg-pink-500" : "bg-gray-300"}`}
+          onClick={() => {
+            setDirection(index > currentIndex ? 1 : -1);
+            setCurrentIndex(index);
+          }}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ duration: 0.2 }}
+        />
+      ))}
+    </div>
+  );
 
   return (
     <motion.div
@@ -100,8 +99,8 @@ const MemoryLane = ({ handleBackToCategories, memoryLanes, title }: MemoryLanePr
           {title}
         </motion.h2>
 
-        {/* Slideshow with navigation */}
-        <div className="relative overflow-hidden rounded-xl mb-6 flex justify-center"> {/* 🔄 modified for portrait centering */}
+        {/* Slideshow */}
+        <div className="relative overflow-hidden rounded-xl mb-6 flex justify-center">
           <AnimatePresence custom={direction} initial={false} mode="popLayout">
             <motion.div
               key={currentIndex}
@@ -111,28 +110,34 @@ const MemoryLane = ({ handleBackToCategories, memoryLanes, title }: MemoryLanePr
               animate="center"
               exit="exit"
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="w-full flex justify-center" // 🔄 Center slide horizontally
+              className="w-full flex justify-center"
             >
               <div className="bg-gradient-to-b from-pink-50 to-purple-50 rounded-xl overflow-hidden shadow-lg">
-                {/* Image */}
+                {/* Media (Image or Video) */}
                 <div
                   className={`relative overflow-hidden flex justify-center items-center ${
                     isPortrait ? "w-72 h-96 mx-auto my-4" : "w-full h-64 md:h-80"
-                  }`} // 🔄 conditional height/width
+                  }`}
                 >
-                  <img
-                    src={currentMemory.image || "/placeholder.svg"}
-                    alt="Memory"
-                    className={`object-cover transition-transform duration-10000 hover:scale-110 rounded-lg ${
-                      isPortrait ? "w-full h-full" : "w-full h-full"
-                    }`}
-                  />
+                  {currentMemory.type === "video" ? (
+                    <video
+                      src={currentMemory.image}
+                      controls
+                      className="w-full h-full object-cover rounded-lg"
+                    />
+                  ) : (
+                    <img
+                      src={currentMemory.image || "/placeholder.svg"}
+                      alt="Memory"
+                      className="w-full h-full object-cover transition-transform duration-10000 hover:scale-110"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 </div>
 
                 {/* Caption */}
                 <div className="p-6">
-                  <p className="text-gray-700 text-lg text-center">{currentMemory.caption}</p>
+                  <p className="text-gray-700 text-lg">{currentMemory.caption}</p>
                 </div>
               </div>
             </motion.div>
@@ -158,6 +163,7 @@ const MemoryLane = ({ handleBackToCategories, memoryLanes, title }: MemoryLanePr
           </motion.button>
         </div>
 
+        {/* Pagination dots */}
         {renderPaginationDots()}
 
         <div className="text-center text-gray-500 text-sm mb-6">
