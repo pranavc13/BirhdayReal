@@ -36,7 +36,7 @@ const VideoSection = ({ videoRef, handleSkipVideo, handleVideoEnd }: VideoSectio
         }}
       >
         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-purple-700">
-          Happy Birthday Message! 🎉
+          Birthday ke liye chota sa video! 🎉
         </h2>
         
         <div className="relative rounded-xl overflow-hidden aspect-video bg-black mb-4 shadow-lg">
@@ -45,7 +45,7 @@ const VideoSection = ({ videoRef, handleSkipVideo, handleVideoEnd }: VideoSectio
             className="w-full h-full object-contain"
             controls
             playsInline
-            src="/birthday_video.mp4"
+            src="/videos/riya.mp4"
           />
           
           {/* Decorative elements */}

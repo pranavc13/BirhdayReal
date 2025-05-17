@@ -1,18 +1,18 @@
 export const foodData = {
     lightFood: {
-      dishes: ["Pani puri Vijay Waala"],
+      dishes: ["Pani puri Vijay Waala", "Sandwich from Sapna Sandwich",],
       
     },
     heavyFood: {
-      dishes: ["Pizza from GroundBaking", "Chole Bhature from Shreemaya", "Sandwich from Sapna Sandwich", "Vegetable Lasagna"],
+      dishes: ["Pizza from GroundBaking"],
       
     },
     dessert: {
-      dishes: ["Ice Cream from Naturals", "Cheese Cake from Pizza Don/Krozzon", "Brownies from Theobrama", "Tiramisu agar kahi se mil gya toh"],
+      dishes: [ "Brownies from Theobrama", "Tiramisu agar kahi se mil gya toh"],
       
     },
     drinks: {
-      dishes: ["Lassi from BJP Karyalay", "Coconut Crush from Raniseti", "Gola/Soda from Vikram Tower", "Milkshake from frullato", "Frozen Bottle n Palasia"],
+      dishes: [ "Milkshake from frullato", "Frozen Bottle n Palasia"],
       
     },
   }
